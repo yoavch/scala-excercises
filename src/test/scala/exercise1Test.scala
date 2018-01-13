@@ -1,0 +1,40 @@
+import org.scalatest.FunSuite
+
+class exercise1Test extends FunSuite {
+
+  def sameElements(ls1:List[Any], ls2: List[Any]) = {
+    // compare elements in one list same as elements in another lists
+    ls1.containsSlice(ls2)
+  }
+
+  test("testMax3multipliers zero elements") {
+    val ls1 = List()
+    assert(ls1.sameElements(List()) )
+  }
+
+  test("testMax3multipliers less than 3 elements") {
+    val ls1 = List(1, -1)
+    assert(ls1.sameElements(List()) )
+  }
+
+  test("testMax3multipliers exactly 3 elements") {
+    val ls1 = List(1, -1, 2)
+    assert(ls1.sameElements(List(1, -1, 2)) )
+  }
+
+  test("testMax3multipliers 1 postivie other negatives ") {
+    val ls1 = List(-1, -9, 1, -1, -5)
+    assert(ls1.sameElements(List(-9, 1, -5)) )
+  }
+
+  test("testMax3multipliers 3 postivie other negatives ") {
+    val ls1 = List(-1, -9, 1, -1, -5, 12, 7, 8, 24)
+    assert(ls1.sameElements(List(12, 8, 24)) )
+  }
+
+  test("testMax3multipliers 2 postivie other negatives ") {
+    val ls1 = List(-1, -9, 1, -1, -5, -12, 2, -8, -24)
+    assert(ls1.sameElements(List(-12, 2, -24)) )
+  }
+
+}
